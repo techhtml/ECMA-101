@@ -16,6 +16,10 @@
   margin: 0 3px;
 }
 
+.nav .nav-item-on {
+  color: rosybrown;
+}
+
 .contents {}
 
 .panel-group {

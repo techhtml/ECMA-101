@@ -88,13 +88,37 @@ const data = {
 // 데이터로써 뽑아야하는 것들
 // 같은 동작을 하는, 혹은 비슷한 동작을 하는 UI가 있을 때, 이 UI의 데이터만 가지고도 특정한 템플릿을 뽑아내고자 할 때
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      index: 0
+    }
+
+    this.onClickListItem = this.onClickListItem.bind(this);
+  }
   _renderNavList() {
+
     // map은 배열을 탐색하면서 모든 배열마다 특정한 동작을 수행하고자할 때 사용합니다.
     // 이 때 map의 return 값이 모두 모여서 하나의 객체를 반환합니다.
     return data.navData.map((data) => {
+
+      let className = "nav-item";
+
+      if(this.state.index == data.index) {
+        className = "nav-item nav-item-on"
+      }
+
+      // 특정 요소를 클릭하면 state를 변경하면 된다.
       return (
-        <li class="nav-item" key={data.index}><a href={data.href}>{data.text}</a></li>
+        <li class={ className } key={ data.index } onClick={ this.onClickListItem }><a href={ data.href } data-index={ data.index }>{ data.text }</a></li>
       )
+    })
+  }
+
+  onClickListItem(e) {
+    this.setState({
+      index: e.target.dataset.index
     })
   }
 
