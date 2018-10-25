@@ -111,7 +111,7 @@ class App extends Component {
 
       // 특정 요소를 클릭하면 state를 변경하면 된다.
       return (
-        <li class={ className } key={ data.index } onClick={ this.onClickListItem }><a href={ data.href } data-index={ data.index }>{ data.text }</a></li>
+        <li className={ className } key={ data.index } onClick={ this.onClickListItem }><a href={ data.href } data-index={ data.index }>{ data.text }</a></li>
       )
     })
   }
@@ -136,18 +136,18 @@ class App extends Component {
       }
 
       if(data.source.type === "video") {
-        panelSource = <video src={data.source.src} autoPlay="true" />
+        panelSource = <video src={data.source.src} autoPlay={true} />
       }
 
       return (
-        <div class={panelClassName} key={data.index}>
-          <a href={data.href} class="panel-container">
-            <div class="panel-content">
-              <h1 class="panel-title">{data.title}</h1>
-              <span class="panel-category">{data.category}</span>
-              <span class="panel-more">Read more</span>
+        <div className={panelClassName} key={data.index}>
+          <a href={data.href} className="panel-container">
+            <div className="panel-content">
+              <h1 className="panel-title">{data.title}</h1>
+              <span className="panel-category">{data.category}</span>
+              <span className="panel-more">Read more</span>
             </div>
-            <div class="panel-source">
+            <div className="panel-source">
               { panelSource }
             </div>
           </a>
@@ -163,17 +163,17 @@ class App extends Component {
     const panelList = this._renderPanelList();
 
     return (
-      <div class="wrap">
-        <header class="header">
-          <h1 class="logo"><a href="#">BMW</a></h1>
-          <nav class="nav">
-            <ul class="nav-list">
+      <div className="wrap">
+        <header className="header">
+          <h1 className="logo"><a href="#">BMW</a></h1>
+          <nav className="nav">
+            <ul className="nav-list">
               { navList }
             </ul>
           </nav>
         </header>
-        <div class="contents">
-          <div class="panel-group">
+        <div className="contents">
+          <div className="panel-group">
             { panelList }
           </div>
         </div>
